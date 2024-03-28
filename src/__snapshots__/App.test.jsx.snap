@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App component > renders Odin Project - Shopping Cart App 1`] = `
+<div>
+  <div>
+    <nav>
+      <ul>
+        <li>
+          <a
+            href="/shop"
+          >
+            Shop
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <button
+      type="button"
+    >
+      Click Me
+    </button>
+    <h1>
+      Odin Project - Shopping Cart App
+    </h1>
+  </div>
+</div>
+`;

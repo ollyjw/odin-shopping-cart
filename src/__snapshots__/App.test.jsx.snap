@@ -14,14 +14,14 @@ exports[`App component > renders Odin Project - Shopping Cart App 1`] = `
         </li>
       </ul>
     </nav>
+    <h1>
+      Odin Project - Shopping Cart App
+    </h1>
     <button
       type="button"
     >
       Click Me
     </button>
-    <h1>
-      Odin Project - Shopping Cart App
-    </h1>
   </div>
 </div>
 `;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import "../styles/card.css";
 
 export default function CardsContainer({ storeData }) {
-    //console.log(storeData);
+
     return (
         <div className="cards-container">
             {storeData.map((item) => (

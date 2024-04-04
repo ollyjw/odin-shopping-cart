@@ -14,6 +14,10 @@ const Router = () => {
                 path: "shop", 
                 element: <Shop /> 
             },
+            {
+              path: "categories/:category",
+              element: <Shop />
+            }
           ],
       },      
     ]);

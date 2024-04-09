@@ -39,13 +39,14 @@
     list-style-type: none;
 }
 
-.header a {
+.header nav ul li a {
     display: block;
     color: #1F5062;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     height: 100%;
+    text-transform: capitalize;
 }
 
 .dropdown {

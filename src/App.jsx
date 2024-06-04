@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Outlet, Link } from "react-router-dom";
-import "./App.css";
+import { Outlet } from "react-router-dom";
+import "./styles/App.css";
 import Header from "./components/Header";
 
 const App = () => {
@@ -24,17 +24,8 @@ const App = () => {
   return (
     <div className="app">
       <Header categories={storeCategoryData} />
-      <p>Welcome to</p>
-      <h1>Fake Store</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
-        veritatis voluptas repudiandae magnam fugiat itaque quas beatae
-        molestias sint facere vero blanditiis reiciendis, labore sit, sunt ipsa
-        explicabo ipsum nobis.
-      </p>
-      <Link to="shop">Shop Now</Link>
       <Outlet />
-    </div>
+    </div>    
   );
 };
 

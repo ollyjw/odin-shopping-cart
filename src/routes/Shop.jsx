@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import CardsContainer from "./CardsContainer";
+import CardsContainer from "../components/CardsContainer";
+import { ProductCard } from "../components/Card";
 
 const Shop = () => {
   const [storeData, setStoreData] = useState([]);
@@ -28,9 +29,11 @@ const Shop = () => {
   return (
     <>
       <p>SHOP</p>
+      {/* <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1> breaks when shop category is unspecified*/}
       <Link to="/">Click here to go back</Link>
       <CardsContainer 
         storeData={storeData}
+        product={ProductCard}
       />
     </>
   );

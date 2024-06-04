@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export default function Card({ cardContent }) {
+export function ProductCard({ cardContent }) {
   return (
     <div className="card" id={cardContent.id}>
       <div className="img-container">
@@ -26,7 +26,7 @@ export default function Card({ cardContent }) {
   );
 }
 
-Card.propTypes = {
+ProductCard.propTypes = {
   id: PropTypes.number,
   image: PropTypes.string,
   title: PropTypes.string,

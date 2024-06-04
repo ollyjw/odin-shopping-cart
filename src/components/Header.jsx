@@ -15,7 +15,7 @@ const Header = ({ categories }) => {
               <Link to="/">Home</Link>
             </li>
             <li className="dropdown">
-              <Link to="shop">Shop</Link>
+              <Link to="shop">Shop &gt;</Link>
               <div className="dropdown-links">
                 {categories.map((category) => (
                   <Link key={category} to={`categories/${category}`}>
@@ -25,7 +25,7 @@ const Header = ({ categories }) => {
               </div>
             </li>
             <li>
-              <Link>Cart icon + no of items</Link>
+              <Link to="cart">Cart icon + no of items</Link>
             </li>
           </ul>
         </nav>

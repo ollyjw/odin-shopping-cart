@@ -1,20 +1,20 @@
-import { Link } from "react-router-dom";
 import "../styles/home.css";
+import  Carousel from "../components/Carousel";
+import { PrimarySlide, SecondarySlide, TertiarySlide } from "../components/Slides";
 
 const Home = () => {
+  const slides = [
+    <PrimarySlide key="Primary" />,
+    <SecondarySlide key="Secondary" />,
+    <TertiarySlide key="Tertiary" />,
+  ];
  
   return (
-    <div className="home">
-      <p>Welcome to</p>
-      <h1>Fake Store</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
-        veritatis voluptas repudiandae magnam fugiat itaque quas beatae
-        molestias sint facere vero blanditiis reiciendis, labore sit, sunt ipsa
-        explicabo ipsum nobis.
-      </p>
-      <p><Link to="shop">Shop Now</Link></p>
-
+    <div className="home">      
+      <Carousel slides={slides} />
+      <section className="opening-para">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error est similique rem laboriosam laborum quis facilis facere id esse amet nulla dignissimos non nisi repellendus aut qui, sed commodi alias?
+      </section>
     </div>
   );
 };

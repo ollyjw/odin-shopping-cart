@@ -10,17 +10,19 @@ export function ProductCard({ cardContent }) {
         ></div>
       </div>
       <div className="card-text">
-        <label htmlFor={`product-${cardContent.id}-quantity`}>Quantity:</label>
-        <input
-          type="number"
-          id={`product-${cardContent.id}-quantity`}
-          name="quantity"
-          className="quantity-input"
-          placeholder="Enter number"
-        />
-
-        <button>Add to cart</button>
-        <p>{cardContent.title}</p>
+        <div className="title">
+          <h3>{cardContent.title}</h3>
+        </div>
+        <div className="quantity-box">
+          <input
+            type="number"
+            id={`product-${cardContent.id}-quantity`}
+            name="quantity"
+            className="quantity-input"
+            placeholder="Quantity"
+          />
+          <button className="add-item">Add to cart</button>
+        </div>
       </div>
     </div>
   );

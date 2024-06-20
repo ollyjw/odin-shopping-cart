@@ -39,14 +39,18 @@
     list-style-type: none;
 }
 
-.header nav ul li a {
-    display: block;
+.nav-link {
+    display: flex;
     color: #1F5062;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    height: 100%;
     text-transform: capitalize;
+}
+
+.dropdown-link {
+    display: block;
+    height: 100%;
 }
 
 .dropdown {
@@ -70,4 +74,12 @@
 
 .dropdown:hover .dropdown-links a:hover {
     background-color: #36e5f5;
+}
+
+.cart-link {
+    align-items: center;
+}
+
+.cart-quantity {
+    margin-left: 5px;
 }

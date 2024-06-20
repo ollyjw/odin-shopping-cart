@@ -14,7 +14,7 @@ const Shop = () => {
       if (category == undefined) {
         response = await fetch('https://fakestoreapi.com/products/', {mode: 'cors'});
       } else {
-        response = await fetch(`https://fakestoreapi.com/products/category/${category}`);
+        response = await fetch(`https://fakestoreapi.com/products/category/${category}`, {mode: 'cors'});
       }
 
       const storeProducts = await response.json();
@@ -28,7 +28,7 @@ const Shop = () => {
 
   return (
     <>
-      <p>SHOP</p>
+      <h1>SHOP</h1>
       {/* <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1> breaks when shop category is unspecified*/}
       <Link to="/">Click here to go back</Link>
       <CardsContainer 

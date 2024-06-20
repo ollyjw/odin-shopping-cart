@@ -4,12 +4,17 @@ import Home from "../routes/Home";
 import Shop from "../routes/Shop";
 import ErrorPage from "../components/ErrorPage";
 import Cart from "../routes/Cart";
+import { CartContextProvider } from "../contexts/CartContext";
 
 const Router = () => {
     const router = createBrowserRouter([
       {       
         path: "/",
-        element: <App />,
+        element: (
+          <CartContextProvider>
+            <App />
+          </CartContextProvider>
+      ),
         errorElement: <ErrorPage />,
         children: [            
             {

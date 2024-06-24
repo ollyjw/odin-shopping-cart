@@ -23,15 +23,15 @@
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    width: 80%;
+    width: 100%;
     list-style-type: none;
-    margin: auto;
+    /* margin: auto; */
     padding: 0;
 }
 
 .header nav ul {
     display: flex;
-    margin: 0;   
+    margin: 0 15px 0 0;   
     padding: 0; 
 }
 

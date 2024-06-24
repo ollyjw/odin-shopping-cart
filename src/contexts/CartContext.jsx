@@ -9,9 +9,9 @@ const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [amountOfItems, setAmountOfItems] = useState(0);
   
-    const addToCart = (product, amount) => {
+    const addToCart = (product, quantity) => {
       setCart(prevItems => {
-        // if the product id matches the id of an item in cart
+        // if the input product id matches the id of an item in cart
         // "The find() method of Array instances returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned."
         const existingItem = prevItems.find(item => item.id === product.id);
         
@@ -21,14 +21,14 @@ const CartContextProvider = ({ children }) => {
         if (existingItem) {
           const latestCartUpdate = prevItems.map(item =>
             item.id === product.id 
-            ? {...item, amount: item.amount + 1} // add the new item quantity to existing quantity
+            ? {...item, quantity: item.quantity + 1} // add the new item quantity to existing quantity
             : item // if current item doesn't exist, return unchanged
           );   
           
           console.log('existing item');
           return latestCartUpdate;
-        } else { //if not in cart, add the product and an amount prop
-          product.amount = amount;
+        } else { //if not in cart, add the product and an quantity prop
+          product.quantity = quantity;
           const newCart = [...prevItems, product]
           console.log(product);
           console.log('new item');
@@ -42,20 +42,54 @@ const CartContextProvider = ({ children }) => {
 
     console.log(cart);
 
-    const removeFromCart = () => {
+    const removeFromCart = (item) => {
+      // filter creates copy of portion of arr filtered to specified elements - every cart item id that isnt equal to clicked items id
+      const updatedArr = cart.filter((cartItem) => cartItem.id != item.id);
+      setCart(updatedArr);
+      
       console.log('remove');
     }
   
-    const updateCartQuantity = () => {
-      console.log("update");
+    const handleIncrementQuantity = (index) => {
+      const updatedCart = [...cart];
+      updatedCart[index].quantity += 1;
+
+      setCart(updatedCart);
+      
+      console.log("increment quantity");
+    }
+
+    const handleDecrementQuantity = (index) => {
+      const updatedCart = [...cart];
+      if (updatedCart[index].quantity <= 1) {
+        return;
+      } else {
+        updatedCart[index].quantity -= 1;
+        setCart(updatedCart);
+      }
+
+      console.log("decrement quantity");
+    }
+
+    const getTotalPrice = (cart) => {
+      let total = 0;
+
+      for (let i = 0; i < cart.length; i++) {
+        if (cart[i].quantity) { //if item has quantity prop
+          total += cart[i].price * cart[i].quantity;
+        } else {
+          total += cart[i].price;
+        }
+      }
+      return total.toFixed(2);
     }
 
     useEffect(() => {
-      // update total amount of items as new ones are added
+      // update total quantity of items as new ones are added
         let total = 0;
     
         for (let i = 0; i < cart.length; i++) {
-          total += Number(cart[i].amount);
+          total += Number(cart[i].quantity);
         }
     
         setAmountOfItems(total);
@@ -68,8 +102,10 @@ const CartContextProvider = ({ children }) => {
                 cart,
                 addToCart,
                 removeFromCart,
-                updateCartQuantity,
-                amountOfItems
+                handleIncrementQuantity,
+                handleDecrementQuantity,
+                amountOfItems,
+                getTotalPrice
             }}
         >
             { children }

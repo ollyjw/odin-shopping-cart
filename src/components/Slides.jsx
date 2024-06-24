@@ -32,8 +32,8 @@ const TertiarySlide = () => {
         },
         {
             imageUrl: jewelryImg,
-            description: "Jewelry",
-            link: "jewelry",
+            description: "Jewelery",
+            link: "jewelery",
         },
         {
             imageUrl: mensClothingImg,

@@ -38,7 +38,7 @@ export function ProductCard({ cardContent }) {
         <div className="title">
           <h3>{cardContent.title}</h3>
           {/* <p>{cardContent.description}</p> */}
-          <p>Price: £{cardContent.price}</p>
+          <p>Price: <strong>£{cardContent.price.toFixed(2)}</strong></p>
           {/* <p>Rating: {cardContent.rating.rate}</p> */}
         </div>
         <div className="quantity-box">

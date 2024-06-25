@@ -25,13 +25,13 @@ const CartContextProvider = ({ children }) => {
             : item // if current item doesn't exist, return unchanged
           );   
           
-          console.log('existing item');
+          // console.log('existing item');
           return latestCartUpdate;
         } else { //if not in cart, add the product and an quantity prop
           product.quantity = quantity;
           const newCart = [...prevItems, product]
           console.log(product);
-          console.log('new item');
+          // console.log('new item');
           
           return newCart;
         }
@@ -47,7 +47,7 @@ const CartContextProvider = ({ children }) => {
       const updatedArr = cart.filter((cartItem) => cartItem.id != item.id);
       setCart(updatedArr);
       
-      console.log('remove');
+      // console.log('remove');
     }
   
     const handleIncrementQuantity = (index) => {
@@ -56,7 +56,7 @@ const CartContextProvider = ({ children }) => {
 
       setCart(updatedCart);
       
-      console.log("increment quantity");
+      // console.log("increment quantity");
     }
 
     const handleDecrementQuantity = (index) => {
@@ -68,7 +68,7 @@ const CartContextProvider = ({ children }) => {
         setCart(updatedCart);
       }
 
-      console.log("decrement quantity");
+      // console.log("decrement quantity");
     }
 
     const getTotalPrice = (cart) => {

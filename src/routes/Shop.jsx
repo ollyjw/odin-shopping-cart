@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import CardsContainer from "../components/CardsContainer";
 import { ProductCard } from "../components/Card";
 import "../styles/shop.css";
@@ -30,9 +30,16 @@ const Shop = () => {
   return (
     <>
       <div className="shop">
-        <h1>SHOP</h1>
-        {/* <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1> breaks when shop category is unspecified*/}
-        <Link to="/">Click here to go back</Link>
+        {category === undefined ? (
+          <div>
+            <h1>SHOP</h1>
+          </div>
+          ) : (
+            <div>
+              <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+            </div>
+          )
+        }
         <CardsContainer 
           storeData={storeData}
           product={ProductCard}

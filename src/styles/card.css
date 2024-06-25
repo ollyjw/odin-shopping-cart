@@ -1,15 +1,14 @@
 .cards-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 60px;
 }
 
 .col {
-    flex: 1;    
+    flex-basis: 25%;
     margin-bottom: 30px;
 }
 
@@ -85,4 +84,36 @@ label {
 
 .add-item {
     width: 100%;
+    padding: 16px 42px;
+    border-radius: 5px;
+    line-height: 1.25;
+    background: #1F5062;
+    text-decoration: none;
+    user-select: none;
+    color: white;
+    font-size: 16px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    position: relative;
+    transition: background-color .6s ease;
+    overflow: hidden;
+}
+
+.add-item::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform-style: flat;
+    transform: translate3d(-50%,-50%,0);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 100%;
+    transition: width .3s ease, height .3s ease;    
+}
+
+.add-item:active::after {
+    width: 300px;
+    height: 300px;
 }

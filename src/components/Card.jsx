@@ -7,14 +7,26 @@ export function ProductCard({ cardContent }) {
   const [product, setProduct] = useState(null);
   const [productAmount, setProductAmount] = useState(1);
 
-  const { addToCart } = useContext(CartContext);
+  const [isActive, setActive] = useState(false);
+  const [btnDisabled, setBtnDisabled] = useState(false);
 
+  const { addToCart } = useContext(CartContext);
+  const delay = 2000;
+  
   const handleFormSubmit = (e) => {
     e.preventDefault();
     addToCart(product, productAmount);
     setProductAmount(1);
   }
-
+  
+  const toggleClass = () => {
+    if (btnDisabled === true) {
+      return;
+    }
+    setBtnDisabled(true);
+    setActive(!isActive);
+  }
+  
   useEffect(() => {
     async function fetchStoreProductId() {
       let response = await fetch(`https://fakestoreapi.com/products/${cardContent.id}`, {mode: 'cors'});
@@ -24,7 +36,18 @@ export function ProductCard({ cardContent }) {
     }
 
     fetchStoreProductId();
-  }, [cardContent.id]);
+
+    if (isActive) setTimeout(() => setActive(false), delay);
+
+    if (!btnDisabled) return;
+
+    const handle = setTimeout(() => {
+      setBtnDisabled(false);
+    },delay);
+
+    return () => clearTimeout(handle);
+
+  }, [cardContent.id, isActive, btnDisabled]);
 
   return (
     <div className="card" id={cardContent.id}>
@@ -58,9 +81,11 @@ export function ProductCard({ cardContent }) {
             />
             <button 
               type="submit"
-              className="add-item"
+              className={isActive ? `add-item active` : `add-item`}
+              onClick={toggleClass}
             >
-                Add to cart
+              <span className="to-add">Add to cart</span>
+              <span className="added">Item added</span>
             </button>
           </form>
         </div>

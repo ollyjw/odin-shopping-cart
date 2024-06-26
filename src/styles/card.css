@@ -82,23 +82,146 @@ label {
     font-weight: bold;
 }
 
+/* btn */
 .add-item {
     width: 100%;
-    padding: 16px 42px;
-    border-radius: 5px;
-    line-height: 1.25;
-    background: #1F5062;
-    text-decoration: none;
-    user-select: none;
-    color: white;
-    font-size: 16px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+    --background: #1F5062;
+    --text: #fff;
+    --cart: #fff;
+    --tick: var(--background);
     position: relative;
-    transition: background-color .6s ease;
+    border: none;
+    background: none;
+    padding: 8px 28px;
+    border-radius: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    mask-image: -webkit-radial-gradient(white, black);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
     overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    min-width: 144px;
+    color: var(--text);
+    background: var(--background);
+    transform: scale(var(--scale, 1));
+    transition: transform .4s cubic-bezier(.36, 1.01, .32, 1.27);
 }
 
+.add-item span {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    position: relative;
+    padding-left: 24px;
+    margin-left: -8px;
+    line-height: 26px;
+    transition: transform .7s ease-in-out;
+}
+
+.add-item .added {
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    height: 100%;
+    margin: 17px 0 0 -18px;
+    transform: translateY(30px);
+    z-index: 1;
+}
+
+/* plus sign */
+.add-item .to-add:before,
+.add-item .to-add:after {
+    content: '';
+    width: var(--w, 2px);
+    height: var(--h, 14px);
+    border-radius: 1px;
+    position: absolute;
+    left: var(--l, 8px);
+    top: var(--t, 6px);
+    background: currentColor;
+    transform: scale(.75) rotate(var(--icon-r, 0deg)) translateY(var(--icon-y, 0));
+    transition: transform .65s ease-in-out .05s;
+}
+
+.add-item span:after {
+    --w: 14px;
+    --h: 2px;
+    --l: 2px;
+    --t: 12px;
+}
+
+/* tick sign */
+.add-item .added:before,
+.add-item .added:after {
+    content: '';
+    width: var(--w, 2px);
+    height: var(--h, 21px);
+    border-radius: 1px;
+    position: absolute;
+    left: var(--l, 17px);
+    top: var(--t, 1px);
+    background: currentColor;
+    transform: scale(.75) rotate(var(--icon-r, 0deg)) translateY(var(--icon-y, 0));
+    transition: transform .65s ease-in-out .05s;
+}
+
+.add-item .added:after {
+    --w: 10px;
+    --l: 5px;
+    --t: 14px;
+}
+
+/* keyframes for bg color animation */
+@-o-keyframes fadeIt {
+    0%   { background-color: #1F5062; }
+    50%  { background-color: #46afd5; }
+    100% { background-color: #4fc9f6; }
+  }
+  @keyframes fadeIt {
+    0%   { background-color: #1F5062; }
+    50%  { background-color: #00bbff; }
+    100% { background-color: #4fc9f6; }
+}
+
+/* clicked class */
+.active {
+    --scale: .95;
+    --span-y: -32px;
+    --icon-r: 180deg;
+    --fill: 1;
+    --fill-d: .8s;
+    --offset: 0;
+    --offset-d: 1.73s;
+
+    animation: fadeIt 2s ease-in-out;
+    -o-animation: fadeIt 2s ease-in-out; 
+}
+
+.active span {
+    transform: translateY(-30px);
+}
+
+.active .added {
+    transform: translateY(-30px);
+}
+
+.active .added:before,
+.active .added:after {
+    transform: scale(.75) rotate(225deg) translateY(var(--icon-y, 0));
+    width: var(--w, 2px);
+    height: var(--h, 21px);
+    left: var(--l, 17px);
+    top: var(--t, 1px);
+}
+
+/* shrink on click */
+.add-item:active {
+    --scale: .95;
+}
+
+/* pale white circle on click */
 .add-item::after {
     content: "";
     position: absolute;

@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { toast, Slide } from 'react-toastify';
+import Notification from "../components/Notification";
 
 
 export function ProductCard({ cardContent }) {
@@ -26,7 +28,27 @@ export function ProductCard({ cardContent }) {
     setBtnDisabled(true);
     setActive(!isActive);
   }
-  
+
+  const notification = () => {
+    toast.success(
+      <Notification 
+        product={product}
+        amount={Number(productAmount)}
+      />, 
+      {
+        position: "bottom-right",
+        autoClose: true,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+      }
+    );
+  }
+
   useEffect(() => {
     async function fetchStoreProductId() {
       let response = await fetch(`https://fakestoreapi.com/products/${cardContent.id}`, {mode: 'cors'});
@@ -67,6 +89,7 @@ export function ProductCard({ cardContent }) {
         <div className="quantity-box">
           <form onSubmit={(e) => {
             handleFormSubmit(e, product, productAmount);
+            notification();
           }}>
             <input
               onChange={(e) => setProductAmount(e.target.value)}

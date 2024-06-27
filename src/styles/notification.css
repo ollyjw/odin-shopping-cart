@@ -1,0 +1,18 @@
+.notification {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: .5fr;
+    gap: 30px;
+}
+
+.notification-col {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+
+.notification-item-img {
+    width: 50px;
+}

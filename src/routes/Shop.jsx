@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CardsContainer from "../components/CardsContainer";
 import { ProductCard } from "../components/Card";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "../styles/shop.css";
 
 const Shop = () => {
@@ -30,6 +32,9 @@ const Shop = () => {
   return (
     <>
       <div className="shop">
+        <ToastContainer 
+
+        />
         {category === undefined ? (
           <div>
             <h1>SHOP</h1>

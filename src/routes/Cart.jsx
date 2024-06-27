@@ -4,9 +4,7 @@ import { CartContext } from "../contexts/CartContext";
 import "../styles/cart.css";
 
 const Cart = () => { 
-  const { cart, removeFromCart, handleDecrementQuantity, handleIncrementQuantity, getTotalPrice } = useContext(CartContext);
-
-  const {amountOfItems} = useContext(CartContext);
+  const { cart, removeFromCart, handleDecrementQuantity, handleIncrementQuantity, getTotalPrice, amountOfItems } = useContext(CartContext);
 
   let checkoutText = `\nP U R C H A S E  C O M P L E T E . \n\nT H A N K  Y O U  F O R  Y O U R  M O N E Y . \n\nokseeyabye`;
 
@@ -26,12 +24,15 @@ const Cart = () => {
             </div>
             {cart.map((item, index) => (
               <div key={index} className="list-item">
-                <div className="cart-item-col">
+                <div className="cart-item-col product-img">
                   <img src={item.image} alt={item.title} className="cart-item-img"/>
                 </div>
                 <div className="cart-item-col product-details">
                   <h4 className="cart-item-category">{item.category.slice(0,1).toUpperCase()+item.category.slice(1,item.category.length)}</h4>
                   <p><strong>{item.title}</strong></p>
+                </div>
+                <div className="cart-item-col price">
+                  <p>£{item.price.toFixed(2)}</p>
                 </div>
                 <div className="cart-item-col quantity">
                   <button 
@@ -44,10 +45,7 @@ const Cart = () => {
                     className="quantity-btn"
                   >+</button>
                 </div>
-                <div className="cart-item-col price">
-                  <p>£{item.price.toFixed(2)}</p>
-                </div>
-                <div className="cart-item-col">
+                <div className="cart-item-col remove">
                   <button onClick={() => removeFromCart(item)} className="delete-btn">X</button>
                 </div>
               </div>

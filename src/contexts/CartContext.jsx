@@ -7,28 +7,27 @@ const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
-    const [amountOfItems, setAmountOfItems] = useState(0);
+    const [totalItems, setTotalItems] = useState(0);
   
     const addToCart = (product, quantity) => {
       setCart(prevItems => {
-        // if the input product id matches the id of an item in cart
-        // "The find() method of Array instances returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned."
+        // if the input product id matches the id of an item in cart        
         const existingItem = prevItems.find(item => item.id === product.id);
         
         // console.log(product.id);
         // console.log(existingItem);
 
         if (existingItem) {
-          const latestCartUpdate = prevItems.map(item =>
+          return prevItems.map(item =>
             item.id === product.id 
-            ? {...item, quantity: item.quantity + 1} // add the new item quantity to existing quantity
+            ? {...item, quantity: item.quantity += Number(quantity)} // add the new item quantity to existing quantity
             : item // if current item doesn't exist, return unchanged
           );   
           
           // console.log('existing item');
-          return latestCartUpdate;
+          
         } else { //if not in cart, add the product and an quantity prop
-          product.quantity = quantity;
+          product.quantity = Number(quantity);
           const newCart = [...prevItems, product]
           console.log(product);
           // console.log('new item');
@@ -37,7 +36,7 @@ const CartContextProvider = ({ children }) => {
         }
       })     
       
-      console.log(cart);
+      // console.log(cart);
     }
 
     console.log(cart);
@@ -92,7 +91,7 @@ const CartContextProvider = ({ children }) => {
           total += Number(cart[i].quantity);
         }
     
-        setAmountOfItems(total);
+        setTotalItems(total);
 
     },[cart]);
 
@@ -104,7 +103,7 @@ const CartContextProvider = ({ children }) => {
                 removeFromCart,
                 handleIncrementQuantity,
                 handleDecrementQuantity,
-                amountOfItems,
+                totalItems,
                 getTotalPrice
             }}
         >

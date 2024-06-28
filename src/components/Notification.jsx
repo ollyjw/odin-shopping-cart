@@ -5,7 +5,7 @@ import { CartContext } from "../contexts/CartContext";
 import "../styles/notification.css";
 
 const Notification = ({product, amount}) => {
-    const {amountOfItems} = useContext(CartContext);
+    const {totalItems} = useContext(CartContext);
 
     return (
         <Link
@@ -17,7 +17,7 @@ const Notification = ({product, amount}) => {
                 </div>
                 <div className="notification-col">
                     <span>x{amount} {product.title.slice(0,30) + "..."} added to the cart</span>
-                    <span>{amountOfItems} total  {amountOfItems > 1 ? "items" : "item"} in the cart. View Cart?</span>
+                    <span>{totalItems} total  {totalItems > 1 ? "items" : "item"} in the cart. View Cart?</span>
                 </div>
             </div>
         </Link>        

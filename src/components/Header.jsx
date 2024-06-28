@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 
 const Header = ({ categories }) => {
-  const {amountOfItems} = useContext(CartContext);
+  const {totalItems} = useContext(CartContext);
 
   return (
     <>
@@ -30,7 +30,7 @@ const Header = ({ categories }) => {
             </li>
             <li>
               <Link to="cart" className="nav-link cart-link">
-                <img src="/src/assets/shopping-cart.svg" alt="Cart" className="cart-icon"/> <span className="cart-quantity">{amountOfItems}</span>
+                <img src="/src/assets/shopping-cart.svg" alt="Cart" className="cart-icon"/> <span className="cart-quantity">{totalItems}</span>
               </Link>
             </li>
           </ul>

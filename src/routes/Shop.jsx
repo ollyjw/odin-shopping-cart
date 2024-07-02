@@ -9,6 +9,9 @@ import "../styles/shop.css";
 const Shop = () => {
   const [storeData, setStoreData] = useState([]);
   const { category } = useParams();
+
+  const isMobile = window.innerWidth <= 600;
+  const toastLimit = isMobile ? '3' : '6';
   
   useEffect(() => {
     async function fetchStoreProducts() {
@@ -33,7 +36,7 @@ const Shop = () => {
     <>
       <div className="shop">
         <ToastContainer 
-
+          limit={toastLimit}
         />
         {category === undefined ? (
           <div>

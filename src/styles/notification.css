@@ -16,3 +16,7 @@
 .notification-item-img {
     width: 50px;
 }
+
+.notification-col span {
+    font-size: 0.9em;
+}

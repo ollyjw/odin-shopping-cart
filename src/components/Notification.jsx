@@ -17,7 +17,7 @@ const Notification = ({product, amount}) => {
                 </div>
                 <div className="notification-col">
                     <span>x{amount} {product.title.slice(0,30) + "..."} added to the cart</span>
-                    <span>{totalItems} total  {totalItems > 1 ? "items" : "item"} in the cart. View Cart?</span>
+                    <span>{totalItems} total  {totalItems > 1 ? "items" : "item"} in the cart. <br></br><strong>View Cart?</strong></span>
                 </div>
             </div>
         </Link>        

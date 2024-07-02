@@ -29,13 +29,25 @@ export function ProductCard({ cardContent }) {
     setActive(!isActive);
   }
 
+  const isMobile = window.innerWidth <= 600;
+
   const notification = () => {
     toast.success(
       <Notification 
         product={product}
         amount={Number(productAmount)}
       />, 
-      {
+      isMobile ? {
+        position: "top-center",
+        autoClose: true,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+      } : {
         position: "bottom-right",
         autoClose: true,
         hideProgressBar: false,
@@ -83,7 +95,7 @@ export function ProductCard({ cardContent }) {
         <div className="title">
           <h3>{cardContent.title}</h3>
           {/* <p>{cardContent.description}</p> */}
-          <p>Price: <strong>£{cardContent.price.toFixed(2)}</strong></p>
+          <p className="price"><span>Price:</span> <strong>£{cardContent.price.toFixed(2)}</strong></p>
           {/* <p>Rating: {cardContent.rating.rate}</p> */}
         </div>
         <div className="quantity-box">

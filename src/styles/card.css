@@ -209,7 +209,8 @@ label {
     -o-animation: fadeIt 2s ease-in-out; 
 }
 
-.active span {
+.active .to-add,
+.active .added {
     transform: translateY(-30px);
 }
 

@@ -18,3 +18,14 @@ ul {
 h3 {
   margin-top: 0;
 }
+
+.lg-screen {
+  display: none;
+}
+
+/* tablet and above screen sizes */
+@media (min-width:768px) {
+  .lg-screen {
+    display: inline-block;
+  }
+}

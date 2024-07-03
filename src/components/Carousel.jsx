@@ -35,14 +35,14 @@ const Carousel = ({ slides }) => {
                 onClick={handlePrevious}
                 className="carousel-nav prev"
             >
-                {`<`}
+                {<span className="chevron-left"></span>}
             </button>
             <button 
                 aria-label="Go to next slide"
                 onClick={handleNext}
                 className="carousel-nav next"
             >
-                {`>`}
+                {<span className="chevron-right"></span>}
             </button>
         </section>
     )

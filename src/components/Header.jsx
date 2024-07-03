@@ -35,7 +35,7 @@ const Header = ({ categories }) => {
               <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
             </li>
             <li className="dropdown">
-              <Link to="shop" className="nav-link dropdown-link" onClick={closeMenu}>Shop <span className="lg-screen">&gt;</span></Link>
+              <Link to="shop" className="nav-link dropdown-link" onClick={closeMenu}>Shop</Link>
               <div className="dropdown-links">
                 {categories.map((category) => (
                   <Link key={category} to={`categories/${category}`} className="nav-link" onClick={closeMenu}>

@@ -196,7 +196,7 @@ label {
 }
 
 /* clicked class */
-.active {
+.btn-active {
     --scale: .95;
     --span-y: -32px;
     --icon-r: 180deg;
@@ -209,17 +209,17 @@ label {
     -o-animation: fadeIt 2s ease-in-out; 
 }
 
-.active .to-add,
-.active .added {
+.btn-active .to-add,
+.btn-active .added {
     transform: translateY(-30px);
 }
 
-.active .added {
+.btn-active .added {
     transform: translateY(-30px);
 }
 
-.active .added:before,
-.active .added:after {
+.btn-active .added:before,
+.btn-active .added:after {
     transform: scale(.75) rotate(225deg) translateY(var(--icon-y, 0));
     width: var(--w, 2px);
     height: var(--h, 21px);

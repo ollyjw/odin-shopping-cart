@@ -116,7 +116,7 @@ export function ProductCard({ cardContent }) {
             />
             <button 
               type="submit"
-              className={isActive ? `add-item active` : `add-item`}
+              className={isActive ? `add-item btn-active` : `add-item`}
               onClick={toggleClass}
             >
               <span className="to-add">Add to cart</span>

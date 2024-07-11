@@ -13,7 +13,7 @@ const App = () => {
         { mode: "cors" }
       );
       const storeCategories = await response.json();
-      console.log(storeCategories);
+      // console.log(storeCategories);
       setStoreCategoryData(storeCategories);
       return storeCategories;
     }
@@ -25,7 +25,7 @@ const App = () => {
     <div className="app">
       <Header categories={storeCategoryData} />
       <Outlet />
-    </div>    
+    </div>
   );
 };
 

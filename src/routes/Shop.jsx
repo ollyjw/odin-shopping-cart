@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CardsContainer from "../components/CardsContainer";
 import { ProductCard } from "../components/Card";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/shop.css";
 
 const Shop = () => {
@@ -11,20 +11,25 @@ const Shop = () => {
   const { category } = useParams();
 
   const isMobile = window.innerWidth <= 600;
-  const toastLimit = isMobile ? '3' : '6';
-  
+  const toastLimit = isMobile ? "3" : "6";
+
   useEffect(() => {
     async function fetchStoreProducts() {
       let response;
 
       if (category == undefined) {
-        response = await fetch('https://fakestoreapi.com/products/', {mode: 'cors'});
+        response = await fetch("https://fakestoreapi.com/products/", {
+          mode: "cors",
+        });
       } else {
-        response = await fetch(`https://fakestoreapi.com/products/category/${category}`, {mode: 'cors'});
+        response = await fetch(
+          `https://fakestoreapi.com/products/category/${category}`,
+          { mode: "cors" }
+        );
       }
 
       const storeProducts = await response.json();
-      console.log(storeProducts);
+      // console.log(storeProducts);
       setStoreData(storeProducts);
       return storeProducts;
     }
@@ -35,25 +40,19 @@ const Shop = () => {
   return (
     <>
       <div className="shop">
-        <ToastContainer 
-          limit={toastLimit}
-        />
+        <ToastContainer limit={toastLimit} />
         {category === undefined ? (
           <div>
             <h1>SHOP</h1>
           </div>
-          ) : (
-            <div>
-              <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
-            </div>
-          )
-        }
-        <CardsContainer 
-          storeData={storeData}
-          product={ProductCard}
-        />
+        ) : (
+          <div>
+            <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+          </div>
+        )}
+        <CardsContainer storeData={storeData} product={ProductCard} />
       </div>
-      </>
+    </>
   );
 };
 

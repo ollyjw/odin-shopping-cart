@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 
 const Header = ({ categories }) => {
-  const {totalItems} = useContext(CartContext);
+  const { totalItems } = useContext(CartContext);
 
   const hamburger = document.querySelector(".hamburger");
   const body = document.querySelector("body");
@@ -21,7 +21,7 @@ const Header = ({ categories }) => {
     hamburger.classList.remove("menu-active");
     navMenu.classList.remove("menu-active");
     body.classList.remove("no-scroll");
-}
+  }
 
   return (
     <>
@@ -29,24 +29,46 @@ const Header = ({ categories }) => {
         <nav>
           <Link to="/" className="home-logo nav-link" onClick={closeMenu}>
             <h2>FAKE STORE</h2>
-          </Link>          
+          </Link>
           <ul className="nav-menu">
             <li>
-              <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
+              <Link to="/" className="nav-link" onClick={closeMenu}>
+                Home
+              </Link>
             </li>
             <li className="dropdown">
-              <Link to="shop" className="nav-link dropdown-link" onClick={closeMenu}>Shop</Link>
+              <Link
+                to="shop"
+                className="nav-link dropdown-link"
+                onClick={closeMenu}
+              >
+                Shop
+              </Link>
               <div className="dropdown-links">
                 {categories.map((category) => (
-                  <Link key={category} to={`categories/${category}`} className="nav-link" onClick={closeMenu}>
+                  <Link
+                    key={category}
+                    to={`categories/${category}`}
+                    className="nav-link"
+                    onClick={closeMenu}
+                  >
                     {category}
                   </Link>
                 ))}
               </div>
             </li>
             <li>
-              <Link to="cart" className="nav-link cart-link" onClick={closeMenu}>
-                <img src="/src/assets/shopping-cart.svg" alt="Cart" className="cart-icon"/> <span className="cart-quantity">{totalItems}</span>
+              <Link
+                to="cart"
+                className="nav-link cart-link"
+                onClick={closeMenu}
+              >
+                <img
+                  src="/src/assets/shopping-cart.svg"
+                  alt="Cart"
+                  className="cart-icon"
+                />{" "}
+                <span className="cart-quantity">{totalItems}</span>
               </Link>
             </li>
           </ul>

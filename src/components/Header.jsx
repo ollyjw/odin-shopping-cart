@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "../styles/header.css";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
+import cartLogo from "../assets/shopping-cart.svg"
 
 const Header = ({ categories }) => {
   const { totalItems } = useContext(CartContext);
@@ -64,7 +65,7 @@ const Header = ({ categories }) => {
                 onClick={closeMenu}
               >
                 <img
-                  src="/src/assets/shopping-cart.svg"
+                  src={cartLogo}
                   alt="Cart"
                   className="cart-icon"
                 />{" "}

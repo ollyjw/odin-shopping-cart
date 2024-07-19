@@ -17,6 +17,7 @@ export function ProductCard({ cardContent }) {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     addToCart(product, productAmount);
+    getCurrentTotalItems(product);
     setProductAmount(1);
   };
 
@@ -28,15 +29,23 @@ export function ProductCard({ cardContent }) {
     setActive(!isActive);
   };
 
-  const currentTotalItems = () => {
+  const getCurrentTotalItems = (product) => {
+    let total = getTotalItems();
+    
     if (cart.length === 0) {
       console.log("WAS EMPTY");
       return Number(productAmount);
-    } else {
-      console.log("was not empty");
-      // console.log(totalItems);
+    } 
+    
+    const existingItem = cart.find((cartItem) => cartItem.id === product.id);
+
+    if (existingItem) { // if added product already in cart
+      // console.log('existing product');
       return Number(getTotalItems());
-      // * "BUG" * : returns correct total item count when adding existing items to cart, but new items return the previous total value.
+    } else { // if new product added to cart
+      // console.log("was not empty");
+      // console.log('new product');
+      return Number(total) + Number(productAmount);
     }
   }
 
@@ -47,7 +56,7 @@ export function ProductCard({ cardContent }) {
       <Notification
         product={product}
         amount={Number(productAmount)}
-        currentTotalItems={currentTotalItems()}
+        currentTotalItems={getCurrentTotalItems(product)}
       />,
       isMobile
         ? {

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import CardsContainer from "../components/CardsContainer";
 import { ProductCard } from "../components/Card";
 import { ToastContainer } from "react-toastify";
+import shopImg from "../assets/img/building.jpg";
 import electronicsImg from "../assets/img/electronics.jpg";
 import jeweleryImg from "../assets/img/jewelery.jpg";
 import mensClothingImg from "../assets/img/mensclothing.jpg";
@@ -50,7 +51,7 @@ const Shop = () => {
         {category === undefined ? (
           <div 
             className="banner"
-            style={{backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(/src/assets/img/building.jpg)`}}
+            style={{backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${shopImg})`}}
           >
             <h1>SHOP</h1>
           </div>

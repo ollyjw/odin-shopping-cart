@@ -17,7 +17,7 @@ const Shop = () => {
   const isMobile = window.innerWidth <= 600;
   const toastLimit = isMobile ? "3" : "6";
 
-  console.log(category);
+  // console.log(category);
 
   useEffect(() => {
     async function fetchStoreProducts() {

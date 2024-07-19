@@ -1,3 +1,32 @@
 .shop {
     margin-top: 30px;
 }
+
+.banner {
+    background: linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8));
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    padding: 15px;
+}
+
+.banner h1 {
+    font-size: 2.8rem;
+}
+
+#mensclothing {
+    background-position: 0 20%;
+}
+
+#womensclothing {
+    background-position: 0 20%;
+}
+
+@media (min-width:768px) {
+    .banner {
+        padding: 60px;
+    }
+    .banner h1 {
+        font-size: 3.2rem;
+    }
+}

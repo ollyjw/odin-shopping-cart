@@ -42,11 +42,18 @@ const Shop = () => {
       <div className="shop">
         <ToastContainer limit={toastLimit} />
         {category === undefined ? (
-          <div>
+          <div 
+            className="banner"
+            style={{backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(/src/assets/img/building.jpg)`}}
+          >
             <h1>SHOP</h1>
           </div>
         ) : (
-          <div>
+          <div 
+            className="banner"
+            id={category.replace(/'| /g, '')}
+            style={{backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(/src/assets/img/${category.replace(/'| /g, '')}.jpg)`}}
+          >
             <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
           </div>
         )}

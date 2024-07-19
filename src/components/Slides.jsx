@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import electronicsImg from "../assets/img/electronics.jpg";
-import jewelryImg from "../assets/img/jewelry.png";
-import mensClothingImg from "../assets/img/mens-clothing.jpg";
-import womensClothingImg from "../assets/img/womens-clothing.webp";
+import jeweleryImg from "../assets/img/jewelery.jpg";
+import mensClothingImg from "../assets/img/mensclothing.jpg";
+import womensClothingImg from "../assets/img/womensclothing.jpg";
 import "../styles/slide.css";
 
 const PrimarySlide = () => {
@@ -31,7 +31,7 @@ const TertiarySlide = () => {
             link: "electronics",
         },
         {
-            imageUrl: jewelryImg,
+            imageUrl: jeweleryImg,
             description: "Jewelery",
             link: "jewelery",
         },

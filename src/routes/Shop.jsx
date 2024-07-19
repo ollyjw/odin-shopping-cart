@@ -18,8 +18,6 @@ const Shop = () => {
   const isMobile = window.innerWidth <= 600;
   const toastLimit = isMobile ? "3" : "6";
 
-  // console.log(category);
-
   useEffect(() => {
     async function fetchStoreProducts() {
       let response;
@@ -49,41 +47,49 @@ const Shop = () => {
       <div className="shop">
         <ToastContainer limit={toastLimit} />
         {category === undefined ? (
-          <div 
+          <div
             className="banner"
-            style={{backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${shopImg})`}}
+            style={{
+              backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${shopImg})`,
+            }}
           >
             <h1>SHOP</h1>
           </div>
         ) : category === "electronics" ? (
-          <div 
+          <div
             className="banner"
-            id={category.replace(/'| /g, '')}
-            style={{backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${electronicsImg})`}}
+            style={{
+              backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${electronicsImg})`,
+            }}
           >
             <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
           </div>
         ) : category === "jewelery" ? (
-          <div 
+          <div
             className="banner"
-            id={category.replace(/'| /g, '')}
-            style={{backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${jeweleryImg})`}}
+            style={{
+              backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${jeweleryImg})`,
+            }}
           >
             <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
           </div>
         ) : category === "men's clothing" ? (
-          <div 
+          <div
             className="banner"
-            id={category.replace(/'| /g, '')}
-            style={{backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${mensClothingImg})`}}
+            id={category.replace(/'| /g, "")}
+            style={{
+              backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${mensClothingImg})`,
+            }}
           >
             <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
           </div>
         ) : category === "women's clothing" ? (
-          <div 
+          <div
             className="banner"
-            id={category.replace(/'| /g, '')}
-            style={{backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${womensClothingImg})`}}
+            id={category.replace(/'| /g, "")}
+            style={{
+              backgroundImage: `linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8)), url(${womensClothingImg})`,
+            }}
           >
             <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
           </div>

@@ -3,7 +3,7 @@
 }
 
 .banner {
-    background: linear-gradient(rgba(31, 80, 98, 0.8), rgba(31, 80, 98, 0.8));
+    background: linear-gradient(rgba(31, 80, 98, 0.8), #1f5062cc), url(/src/assets/img/building.jpg);
     background-position: center;
     background-size: cover;
     color: #fff;

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import "./styles/App.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [storeCategoryData, setStoreCategoryData] = useState([]);
@@ -22,10 +23,15 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app">
-      <Header categories={storeCategoryData} />
-      <Outlet />
-    </div>
+    <>
+      <div className="app-wrap">
+        <div className="app">
+          <Header categories={storeCategoryData} />
+          <Outlet />
+        </div>
+      </div>    
+      <Footer />
+    </>
   );
 };
 

@@ -68,11 +68,16 @@
 
 /* tablet and above screen sizes */
 @media (min-width:768px) {
-    .slide {
-        align-items: center;
-    }
     .landing-slide h1 {
         font-size: 3.2rem;
+    }
+}
+
+
+/* desktop screen sizes */
+@media (min-width:961px) {
+    .slide {
+        align-items: center;
     }
     .category-slide {
         flex-flow: row nowrap;
@@ -121,5 +126,5 @@
     }
     .category-col:hover::before {
         transform: scale(1.2);
-    }
+    }    
 }

@@ -252,9 +252,16 @@ label {
     height: 300px;
 }
 
-/* tablet and above screen sizes */
+/* tablet screen sizes */
 @media (min-width:768px) {
     .cards-container {
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* desktop screen sizes */
+@media (min-width:961px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
